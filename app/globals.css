@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* ============================================
+   Tailwind CSS v4 - CSS-First Configuration
+   DARK THEME - Linear Gradient Background
+   ============================================ */
+
+@theme {
+  /* Reset default colors and use custom palette */
+  --color-*: initial;
+  
+  /* Custom Color Palette - DARK THEME (Figma Exact) */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  
+  /* Dark Gradient Background Colors */
+  --color-bg-dark-start: #151618; /* 0% */
+  --color-bg-dark-end: #01040B;   /* 100% */
+  
+  /* Text Colors for Dark Theme */
+  --color-text-primary: #ffffff;     /* White for dark background */
+  --color-text-muted: #9ca3af;       /* Gray for labels */
+  --color-text-body: #e5e7eb;        /* Light gray for body text */
+  
+  /* Additional Grays */
+  --color-gray-100: #f3f4f6;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  
+  /* Fonts - Referencing next/font/google CSS variables */
+  --font-display: var(--font-playfair);
+  --font-sans: var(--font-inter);
+}
+
+/* ============================================
+   Global Resets & Dark Gradient Background
+   ============================================ */
+
+/* Remove ALL box-shadows (fixes blue glow from Next.js template) */
+*,
+*::before,
+*::after {
+  box-shadow: none !important;
+}
+
+html {
+  box-shadow: none !important;
+  /* Dark gradient background - Linear from top to bottom */
+  background: linear-gradient(180deg, #151618 0%, #01040B 100%);
+  background-attachment: fixed; /* Keep gradient fixed when scrolling */
+  min-height: 100vh;
+}
+
+body {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  /* Transparent to show html gradient */
+  background-color: transparent;
+  color: var(--color-text-primary);
+  box-shadow: none !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Additional cleanup */
+#__next {
+  box-shadow: none !important;
+  min-height: 100vh;
+}
