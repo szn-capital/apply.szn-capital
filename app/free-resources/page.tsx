@@ -1,23 +1,12 @@
 "use client"
 import React from 'react';
 import Link from 'next/link';
-import { Check, BookOpen, ArrowRight } from 'lucide-react';
 import { ScrollFadeIn } from '../components/ScrollAnimations';
 import MinimalFooter from '../components/MinimalFooter';
 
 import ContentContainer from '../components/ContentContainer';
 
 export default function FreeResourcesPage() {
-
-    const resources = [
-        {
-            icon: BookOpen,
-            title: 'Free 12+Hour Course',
-            description: 'Delivering a complete, systemized breakdown of market conditions, bias, narrative, execution logic, and risk',
-            link: 'https://whop.com/szn-capital-llc/',
-            color: 'from-blue-500/20 to-blue-900/20'
-        }
-    ];
 
     return (
         <main className="min-h-screen flex flex-col text-white selection:bg-purple-500/30">
@@ -47,29 +36,22 @@ export default function FreeResourcesPage() {
                         </div>
                     </ScrollFadeIn>
 
-                    {/* Resources Grid */}
+                    {/* Video Embed */}
                     <div className="flex justify-center mb-16">
-                        <div className="w-full max-w-md">{resources.map((resource, idx) => (
-                            <ScrollFadeIn key={idx} direction="up" delay={idx * 0.1} duration={0.7}>
-                                <a
-                                    href={resource.link}
-                                    className="group block p-8 rounded-2xl border border-white/10 bg-linear-to-b from-[#272a2f]/40 to-[#14161C]/40 hover:border-[#782FFF]/50 transition-all duration-300 hover:scale-[1.02]"
-                                >
-                                    <div className={`w-14 h-14 rounded-xl bg-linear-to-br ${resource.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                                        <resource.icon className="w-7 h-7 text-white" />
+                        <div className="w-full max-w-4xl">
+                            <ScrollFadeIn direction="up" duration={0.7}>
+                                <div className="rounded-2xl border border-white/10 bg-linear-to-b from-[#272a2f]/40 to-[#14161C]/40 p-2 sm:p-3">
+                                    <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingTop: '56.25%' }}>
+                                        <iframe
+                                            className="absolute inset-0 w-full h-full"
+                                            src="https://www.youtube.com/embed/vR4S0fj5qsA?start=2&rel=0"
+                                            title="SZN Capital — Free Training"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowFullScreen
+                                        />
                                     </div>
-                                    <h3 className="text-xl font-semibold text-white mb-3">
-                                        {resource.title}
-                                    </h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                                        {resource.description}
-                                    </p>
-                                    <div className="flex items-center gap-2 text-[#782FFF] text-sm font-medium">
-                                        Access Now <ArrowRight size={16} />
-                                    </div>
-                                </a>
+                                </div>
                             </ScrollFadeIn>
-                        ))}
                         </div>
                     </div>
 
