@@ -38,7 +38,7 @@ export default function FreeResourcesPage() {
 
                     {/* Video Embed */}
                     <div className="flex justify-center mb-16">
-                        <div className="w-full max-w-4xl">
+                        <div className="w-full max-w-2xl">
                             <ScrollFadeIn direction="up" duration={0.7}>
                                 <div className="rounded-2xl border border-white/10 bg-linear-to-b from-[#272a2f]/40 to-[#14161C]/40 p-2 sm:p-3">
                                     <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingTop: '56.25%' }}>
