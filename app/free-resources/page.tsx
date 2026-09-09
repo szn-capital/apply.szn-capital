@@ -31,14 +31,14 @@ export default function FreeResourcesPage() {
                                 </span>
                             </h1>
                             <p className="text-[#9CA1B2] text-sm md:text-base font-normal leading-relaxed">
-                                You're not quite ready for the mentorship yet. SZN Academy is built around direct coaching, personalised feedback, and structured accountability — the kind of attention that actually changes how you trade. That level of guidance requires a real commitment, both from you and from us. If you're not in a position to make that investment right now, start with our free 12-hour course and build your foundation first.
+                                You're not quite ready for the mentorship yet. SZN Academy is built around direct coaching, personalised feedback, and structured accountability — the kind of attention that actually changes how you trade. That level of guidance requires a real commitment, both from you and from us. If you're not in a position to make that investment right now, start with our free 5-hour course and build your foundation first.
                             </p>
                         </div>
                     </ScrollFadeIn>
 
                     {/* Video Embed */}
                     <div className="flex justify-center mb-16">
-                        <div className="w-full max-w-2xl">
+                        <div className="w-full max-w-3xl">
                             <ScrollFadeIn direction="up" duration={0.7}>
                                 <div className="rounded-2xl border border-white/10 bg-linear-to-b from-[#272a2f]/40 to-[#14161C]/40 p-2 sm:p-3">
                                     <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingTop: '56.25%' }}>
