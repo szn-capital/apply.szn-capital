@@ -62,9 +62,6 @@ export default function BookingPage() {
                             <p className="text-[#9CA1B2] text-xs md:text-sm font-light mt-4 mb-2">
                                 We limit calls each week to keep coaching quality high. <span className="text-gray-300 font-normal">Select a time now</span> before spots are taken.
                             </p>
-                            <p className="text-[#9CA1B2] text-[11px] font-light leading-relaxed max-w-lg mx-auto mt-3">
-                                This is a strategy call to determine if SZN Academy is the right fit for you. SZN Academy is a 12-month trading mentorship program with direct 1:1 coaching.
-                            </p>
                         </div>
                     </ScrollFadeIn>
                 </ContentContainer>
