@@ -92,7 +92,7 @@ export default function BookingPage() {
                             {mounted && (
                                 <div
                                     className="calendly-inline-widget w-full rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-transparent"
-                                    data-url={`https://calendly.com/saim-shaikh/enrollment?background_color=1a1a1a&text_color=ffffff&primary_color=ffffff&redirect_url=${encodeURIComponent(redirectUrl)}`}
+                                    data-url="https://calendly.com/saim-shaikh/enrollment"
                                     style={{ minWidth: '320px', height: '700px' }}
                                 />
                             )}
