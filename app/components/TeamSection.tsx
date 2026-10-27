@@ -23,7 +23,7 @@ const teamMembers: TeamMember[] = [
     {
         name: "1:1 Access with David",
         description: "Direct access to me, including <span class=\"text-white font-medium\">trade audits, system refinement, accountability, and execution feedback</span>. This is real mentorship, not just another course.",
-        imageSrc: "/team/member-3.svg"
+        imageSrc: "/team/member-3.webp"
     }
 ];
 
