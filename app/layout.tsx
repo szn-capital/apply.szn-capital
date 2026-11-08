@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Tinos, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+// Times New Roman stand-in for phones that don't have it (Android); same shapes and metrics.
+const tinos = Tinos({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-tinos",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["400"],
+  style: ["italic"],
 });
 
 const inter = Inter({
@@ -43,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${tinos.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.cdnfonts.com" />
         <link href="https://fonts.cdnfonts.com/css/tt-tsars-a-trial" rel="stylesheet" />

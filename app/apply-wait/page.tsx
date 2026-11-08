@@ -162,7 +162,7 @@ function ShortlistedContent() {
                     {/* Header */}
                     <div className="text-center mb-10 animate-fade-in-up">
                         <h1 className="text-4xl md:text-6xl font-sans font-medium text-white mb-4 -tracking-[0.03em]">
-                            Congratulations{name ? <span className="italic font-light text-gray-200" style={{ fontFamily: '"Times New Roman", Times, serif' }}> {name}!</span> : '!'}
+                            Congratulations{name ? <span className="accent-serif"> {name}!</span> : '!'}
                         </h1>
                         <p className="text-gray-400 text-sm md:text-base font-light">
                             Thank you for your interest in the SZN Capital mentorship program. <br className="hidden md:block" />

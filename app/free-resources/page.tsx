@@ -26,7 +26,7 @@ export default function FreeResourcesPage() {
                         <div className="text-center mb-16 max-w-3xl mx-auto">
                             <h1 className="text-4xl sm:text-5xl md:text-[42px] lg:text-[50px] font-sans font-medium text-white leading-tight lg:leading-[1.15] mb-6 -tracking-[0.03em]">
                                 Build Your{' '}
-                                <span className="italic font-light text-gray-200" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+                                <span className="accent-serif">
                                     Foundation First
                                 </span>
                             </h1>

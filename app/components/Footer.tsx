@@ -36,10 +36,7 @@ export default function Footer() {
                     <div className="text-center mb-32">
                         <h2 className="text-4xl md:text-6xl font-sans font-medium text-white mb-6 -tracking-[0.03em] leading-[1.1]">
                             <span className="block mb-2">Ready to Become a</span>
-                            <span
-                                className="italic font-light text-gray-200"
-                                style={{ fontFamily: '"Times New Roman", Times, serif' }}
-                            >
+                            <span className="accent-serif">
                                 Funded Trader?
                             </span>
                         </h2>

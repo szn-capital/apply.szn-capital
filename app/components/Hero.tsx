@@ -33,10 +33,9 @@ export default function Hero({ subtitle, vimeoId }: HeroProps) {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-gray-800/20 via-[#030303]/0 to-transparent pointer-events-none" />
 
             <ContentContainer size="wide" className="relative z-10 mt-4 mb-8 text-center px-4">
-                <h1 className="text-4xl sm:text-5xl md:text-[42px] lg:text-[50px] font-sans font-medium text-white leading-tight lg:leading-[1.15] -tracking-[0.03em] flex flex-col gap-2">
-                        <span>Get <span className="italic font-light text-gray-200 -tracking-[0.05em] antialiased" style={{ fontFamily: '"Times New Roman", Times, serif' }}>consistent</span> payouts,</span>
-                        <span>or I keep coaching you until you&apos;ve <span className="italic font-light text-white -tracking-[0.05em] antialiased" style={{ fontFamily: '"Times New Roman", Times, serif' }}>earned back</span> what you paid.</span>
-                    </h1>
+                <h1 className="mx-auto max-w-[20em] text-[34px] leading-[1.15] sm:text-[44px] lg:text-[52px] lg:leading-[1.12] font-sans font-medium text-white -tracking-[0.025em]">
+                    Get <em className="accent-serif">consistent</em> payouts, or I keep coaching you until you&apos;ve <em className="accent-serif whitespace-nowrap">earned back</em> what you paid.
+                </h1>
             </ContentContainer>
 
             {/* Subheadline */}
@@ -44,12 +43,10 @@ export default function Hero({ subtitle, vimeoId }: HeroProps) {
                                     {subtitle ? (
                         <p className="text-sm md:text-base font-sans font-normal text-[#9CA1B2] leading-relaxed mx-auto max-w-5xl" dangerouslySetInnerHTML={{ __html: subtitle }} />
                     ) : (
-                        <p className="text-sm md:text-base font-sans font-normal text-[#9CA1B2] leading-relaxed mx-auto max-w-5xl">
-                                Join a 12-month mentorship built on years of direct 1-on-1 coaching, backed by <strong className="font-semibold text-white">over $1M in verified student payouts</strong>.{" "}<br className="hidden md:block" />
-                                Get <strong className="font-semibold text-white">direct access to me, daily accountability, and personalized coaching</strong> designed to turn{" "}<br className="hidden md:block" />
-                                inconsistent execution into repeatable performance.<br />
-                                Limited spots available.
-                            </p>
+                        <p className="text-[15px] md:text-[17px] font-sans font-normal text-[#9CA1B2] leading-relaxed mx-auto max-w-[56em] text-balance">
+                            A 12-month mentorship built on years of 1-on-1 coaching, backed by <strong className="font-medium text-white whitespace-nowrap">over $1M in verified student payouts</strong>.{" "}<br className="hidden md:block" />
+                            Direct access to me, daily accountability and personal coaching. Limited spots.
+                        </p>
                     )}
             </ContentContainer>
 

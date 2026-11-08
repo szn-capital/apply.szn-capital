@@ -70,12 +70,9 @@ export default function FAQSection() {
                 <ScrollFadeIn direction="up" duration={0.8}>
                     <div className="text-center mb-20">
                         <h2 className="text-3xl md:text-5xl font-sans font-medium text-white -tracking-[0.03em]">
-                            <span
-                                className="italic font-light text-gray-200 pr-3 antialiased"
-                                style={{ fontFamily: '"Times New Roman", Times, serif' }}
-                            >
+                            <span className="accent-serif">
                                 Frequently
-                            </span>
+                            </span>{" "}
                             Asked Questions
                         </h2>
                     </div>
