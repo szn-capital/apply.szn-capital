@@ -100,7 +100,7 @@ export default function StudentResultsSection() {
                                         {student.payoutAmount ? (
                                             <div className="ml-auto text-right shrink-0">
                                                 <p className="text-[#86EBC6] font-semibold text-xl leading-none tabular-nums">{student.payoutAmount}</p>
-                                                <p className="text-gray-500 text-[10px] font-semibold tracking-[0.12em] uppercase mt-1">payout</p>
+                                                <p className="text-gray-500 text-[10px] font-semibold tracking-[0.12em] uppercase mt-1">{student.certCount > 1 ? "in payouts" : "payout"}</p>
                                             </div>
                                         ) : (
                                             <div className="ml-auto text-gray-600 group-hover:text-blue-400 transition-colors">

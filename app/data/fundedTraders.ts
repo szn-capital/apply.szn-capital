@@ -6,7 +6,8 @@ export interface FundedTrader {
     certImage: string; // Primary certificate (for backwards compatibility)
     highestCertImage?: string; // Highest-value certificate shown on cards
     certificates?: string[]; // Multiple certificates (optional)
-    payout?: string;
+    payout?: string; // total shown on the card: the sum of the payouts on its certificates
+    payoutLabel?: string; // line under the amount; defaults to "in payouts" when the card has several certificates
     is1o1Student?: boolean; // Flag to identify 1-on-1 students
 }
 
@@ -25,7 +26,7 @@ export const oneOnOneStudents: FundedTrader[] = [
             "/1o1Students/1. Name_ Tom/certificate 2.jpeg", // other
             "/1o1Students/1. Name_ Tom/certificate 4.jpeg", // $17k  ← shown last
         ],
-        payout: "$262,973",
+        payout: "$489,268",
         is1o1Student: true
     },
     {
@@ -39,7 +40,7 @@ export const oneOnOneStudents: FundedTrader[] = [
             "/1o1Students/2. Name_ Saim/certificate 2.webp",
             "/1o1Students/2. Name_ Saim/certificate 1.webp"
         ],
-        payout: "$11,120",
+        payout: "$18,320",
         is1o1Student: true
     },
     {
@@ -55,7 +56,7 @@ export const oneOnOneStudents: FundedTrader[] = [
             "/1o1Students/3. Name_ Dragos/certificate 2.jpeg",
             "/1o1Students/3. Name_ Dragos/certificate 1.jpeg"
         ],
-        payout: "$22,384",
+        payout: "$42,869",
         is1o1Student: true
     },
 ];
@@ -104,7 +105,7 @@ export const fundedTraders: FundedTrader[] = [
         avatar: "/testimonials_academy/6 - name_ tom/pfp.png",
         text: "",
         certImage: "/testimonials_academy/6 - name_ tom/certificate-1.png",
-        payout: "$262,973",
+        payout: "$489,268",
         certificates: [
             "/testimonials_academy/6 - name_ tom/certificate-1.png",
             "/testimonials_academy/6 - name_ tom/certificate-2.png",
@@ -119,6 +120,7 @@ export const fundedTraders: FundedTrader[] = [
         text: "Switching from fx was the right call. Took some weeks to adapt to NQ but is much cleaner \n\n$7,890 payout, so far this month.\n\nAiming for the second one before month end. Transition from FX to NQ was easier than expected.",
         certImage: "/testimonials_academy/7 - name_ dragos/certificate.png",
         payout: "$7,890",
+        payoutLabel: "in payouts", // Topstep: 5 payouts
     },
     {
         name: "Phoenix",

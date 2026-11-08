@@ -31,6 +31,7 @@ interface Testimonial {
     text: string;
     certImage: string;
     payout: string;
+    payoutLabel?: string;
 }
 
 // --- DATA ---
@@ -66,7 +67,7 @@ const TestimonialCard = ({ item, onClick }: { item: Testimonial; onClick: (item:
             {item.payout ? (
                 <div className="ml-auto text-right shrink-0">
                     <p className="text-[#86EBC6] font-semibold text-xl leading-none tabular-nums">{item.payout}</p>
-                    <p className="text-gray-500 text-[10px] font-semibold tracking-[0.12em] uppercase mt-1">payout</p>
+                    <p className="text-gray-500 text-[10px] font-semibold tracking-[0.12em] uppercase mt-1">{item.payoutLabel || ((allTraders.find(t => t.name === item.name && t.certImage === item.certImage)?.certificates?.length ?? 1) > 1 ? "in payouts" : "payout")}</p>
                 </div>
             ) : (
                 <div className="ml-auto text-gray-600 group-hover/card:text-blue-400 transition-colors shrink-0">
