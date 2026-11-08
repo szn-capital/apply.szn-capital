@@ -105,7 +105,7 @@ export const fundedTraders: FundedTrader[] = [
         avatar: "/testimonials_academy/6 - name_ tom/pfp.png",
         text: "",
         certImage: "/testimonials_academy/6 - name_ tom/certificate-1.png",
-        payout: "$489,268",
+        payout: "$262,973",
         certificates: [
             "/testimonials_academy/6 - name_ tom/certificate-1.png",
             "/testimonials_academy/6 - name_ tom/certificate-2.png",
@@ -120,7 +120,6 @@ export const fundedTraders: FundedTrader[] = [
         text: "Switching from fx was the right call. Took some weeks to adapt to NQ but is much cleaner \n\n$7,890 payout, so far this month.\n\nAiming for the second one before month end. Transition from FX to NQ was easier than expected.",
         certImage: "/testimonials_academy/7 - name_ dragos/certificate.png",
         payout: "$7,890",
-        payoutLabel: "in payouts", // Topstep: 5 payouts
     },
     {
         name: "Phoenix",

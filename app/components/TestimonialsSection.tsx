@@ -53,21 +53,21 @@ const row3: Testimonial[] = sorted.filter((_, i) => i % 3 === 2);
 const TestimonialCard = ({ item, onClick }: { item: Testimonial; onClick: (item: Testimonial) => void }) => (
     <div
         onClick={() => onClick(item)}
-        className={`${item.text ? 'w-[500px]' : 'w-[280px]'} shrink-0 bg-[#0e0f12] border border-white/5 rounded-[28px] p-6 hover:border-white/10 hover:bg-[#131418] transition-colors duration-300 cursor-pointer group/card flex flex-col`}
+        className={`${item.text ? 'w-[280px] sm:w-[500px]' : 'w-[200px] sm:w-[280px]'} shrink-0 bg-[#0e0f12] border border-white/5 rounded-[20px] sm:rounded-[28px] p-4 sm:p-6 hover:border-white/10 hover:bg-[#131418] transition-colors duration-300 cursor-pointer group/card flex flex-col`}
     >
         {/* Header */}
-        <div className="flex items-center gap-4 mb-5">
-            <div className="w-12 h-12 rounded-full overflow-hidden border border-white/10 bg-gray-800 shrink-0 relative">
+        <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-5">
+            <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-white/10 bg-gray-800 shrink-0 relative">
                 <Image src={item.avatar} alt={item.name} fill sizes="48px" className="object-cover" />
             </div>
             <div className="min-w-0 flex-1">
-                <p className="text-white font-medium text-base truncate">{item.name}</p>
-                {item.handle && <p className="text-gray-400 text-sm truncate">{item.handle}</p>}
+                <p className="text-white font-medium text-sm sm:text-base truncate">{item.name}</p>
+                {item.handle && <p className="text-gray-400 text-xs sm:text-sm truncate">{item.handle}</p>}
             </div>
             {item.payout ? (
                 <div className="ml-auto text-right shrink-0">
-                    <p className="text-[#86EBC6] font-semibold text-xl leading-none tabular-nums">{item.payout}</p>
-                    <p className="text-gray-500 text-[10px] font-semibold tracking-[0.12em] uppercase mt-1">{item.payoutLabel || ((allTraders.find(t => t.name === item.name && t.certImage === item.certImage)?.certificates?.length ?? 1) > 1 ? "in payouts" : "payout")}</p>
+                    <p className="text-[#86EBC6] font-semibold text-base sm:text-xl leading-none tabular-nums">{item.payout}</p>
+                    <p className="text-gray-500 text-[10px] font-semibold tracking-[0.12em] uppercase mt-1">payout</p>
                 </div>
             ) : (
                 <div className="ml-auto text-gray-600 group-hover/card:text-blue-400 transition-colors shrink-0">
@@ -77,18 +77,18 @@ const TestimonialCard = ({ item, onClick }: { item: Testimonial; onClick: (item:
         </div>
 
         {/* Content Layout: Text Left | Image Right (or Center if no text) */}
-        <div className={`flex gap-5 ${item.text ? 'items-center' : 'items-center justify-center mt-2'}`}>
+        <div className={`flex gap-3 sm:gap-5 ${item.text ? 'items-center' : 'items-center justify-center mt-1 sm:mt-2'}`}>
             {/* Text Area */}
             {item.text && (
                 <div className="flex-1 min-w-0">
-                    <p className="text-gray-200 text-[15px] leading-relaxed line-clamp-5">
+                    <p className="text-gray-200 text-[13px] sm:text-[15px] leading-snug sm:leading-relaxed line-clamp-4 sm:line-clamp-5">
                         {item.text}
                     </p>
                 </div>
             )}
 
             {/* Certificate Thumbnail */}
-            <div className={`relative ${item.text ? 'w-36' : 'w-48'} aspect-4/3 shrink-0 rounded-xl overflow-hidden border border-white/5 bg-black/30 group-hover/card:border-white/20 transition-colors`}>
+            <div className={`relative ${item.text ? 'w-24 sm:w-36' : 'w-40 sm:w-48'} aspect-4/3 shrink-0 rounded-xl overflow-hidden border border-white/5 bg-black/30 group-hover/card:border-white/20 transition-colors`}>
                 <Image
                     src={item.certImage}
                     alt="Certificate"
