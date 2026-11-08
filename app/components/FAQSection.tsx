@@ -23,7 +23,7 @@ const faqs: FAQ[] = [
     },
     {
         question: "What's included in the program?",
-        answer: `This is a 12-month mentorship designed to take you from inconsistent execution to structured, professional trading. Inside the program, you receive:<ul class="mt-3 space-y-1.5 list-none"><li>• Daily private journaling with coach feedback</li><li>• Weekly small-group calls with me</li><li>• Weekly group sessions with Saim and Dragos</li><li>• Bi-weekly performance psychology coaching with Sanj</li><li>• A fully customized trading system and personal playbook built with me</li><li>• Monthly journal audits conducted personally by me</li><li>• Ongoing 1-on-1 support based on your progress</li><li>• Lifetime access to the SZN Capital Discord community and daily streams</li><li>• Quarterly 1-on-1 progress calls (or every 6 weeks when qualified)</li></ul><span class="block mt-3">Coaching doesn't end after 12 months. Support continues until you achieve results.</span>`
+        answer: `This is a 12-month mentorship designed to take you from inconsistent execution to structured, professional trading. Inside the program, you receive:<ul class="mt-3 space-y-1.5 list-none"><li>• Daily private journaling with coach feedback</li><li>• Weekly small-group calls with me</li><li>• Weekly group sessions with Saim and Dragos</li><li>• Bi-weekly performance psychology coaching with Sanj</li><li>• A fully customized trading system and personal playbook built with me</li><li>• Monthly journal audits conducted personally by me</li><li>• Ongoing 1-on-1 support based on your progress</li><li>• Lifetime access to the SZN Capital Discord community and daily streams</li><li>• Quarterly 1-on-1 progress calls (or every 6 weeks when qualified)</li></ul><span class="block mt-3">Coaching doesn't end after 12 months: it continues until you've made back in payouts what you paid for the mentorship.</span>`
     },
     {
         question: "How much time do I actually need to commit to this?",
@@ -35,11 +35,11 @@ const faqs: FAQ[] = [
     },
     {
         question: "What markets/strategies do you teach?",
-        answer: "The framework focuses on high-probability execution built around price action, liquidity, narrative, and higher-timeframe context, aligned with ICT/SMC principles. Primary markets include FX (EURUSD, GBPUSD, etc.) and indices (ES, NQ), with adaptability for crypto when relevant. Rather than forcing one rigid strategy, the system is tailored to your strengths, preferred market, and execution style."
+        answer: "The framework focuses on high-probability execution built around price action, liquidity, narrative, and higher-timeframe context, aligned with ICT/SMC principles. The main market is NQ, with ES alongside it. Rather than forcing one rigid strategy, the system is tailored to your strengths and execution style."
     },
     {
         question: "Do I need prior knowledge?",
-        answer: "Yes. A basic understanding of trading is required. You should already know how to read charts, understand liquidity concepts, and be familiar with multiple timeframes. If you've completed the free 12-hour course or followed my YouTube content, you'll have the foundation needed. This mentorship is designed for traders who already understand the basics but are struggling to achieve consistent execution."
+        answer: "Yes. A basic understanding of trading is required. You should already know how to read charts, understand liquidity concepts, and be familiar with multiple timeframes. If you've completed the <a href=\"https://youtu.be/vR4S0fj5qsA\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 text-white\">free 5h+ NQ course</a> or followed my YouTube content, you'll have the foundation needed. This mentorship is designed for traders who already understand the basics but are struggling to achieve consistent execution."
     },
     {
         question: "How quickly can I see results?",

@@ -19,9 +19,22 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const TITLE = "Get mentored by me directly | SZN Capital";
+const DESCRIPTION = "12 months of 1-on-1 coaching with David and a performance coach. Coaching continues until your payouts cover what you paid.";
+
 export const metadata: Metadata = {
-  title: "SZN Capital - 6-Figure Funded Trader Program",
-  description: "Join the 12-month mentorship built from years of 1-on-1 coaching with real traders.",
+  metadataBase: new URL("https://apply.szn-capital.com"),
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    type: "website",
+    url: "https://apply.szn-capital.com",
+    siteName: "SZN Capital",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "SZN Capital" }],
+  },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: ["/og.jpg"] },
 };
 
 export default function RootLayout({
@@ -34,6 +47,9 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.cdnfonts.com" />
         <link href="https://fonts.cdnfonts.com/css/tt-tsars-a-trial" rel="stylesheet" />
+        <link rel="preconnect" href="https://form.typeform.com" />
+        <link rel="preconnect" href="https://embed.typeform.com" />
+        <link rel="prefetch" href="https://embed.typeform.com/next/embed.js" as="script" />
       </head>
       <body className="bg-gradient-to-b from-[#151618] to-[#01040B] min-h-screen text-white antialiased selection:bg-white selection:text-black" suppressHydrationWarning>
         {children}
