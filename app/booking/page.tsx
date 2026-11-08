@@ -52,10 +52,7 @@ export default function BookingPage() {
                             <h1 className="text-3xl md:text-4xl lg:text-[42px] font-sans font-medium text-white leading-tight mb-2">
                                 Schedule Your 1:1
                                 <br />
-                                <span
-                                    className="italic font-light text-white"
-                                    style={{ fontFamily: '"Times New Roman", Times, serif' }}
-                                >
+                                <span className="accent-serif">
                                     You&#39;re One Step Away From Fixing Your Trading
                                 </span>
                             </h1>

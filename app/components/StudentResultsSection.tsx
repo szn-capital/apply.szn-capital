@@ -58,12 +58,9 @@ export default function StudentResultsSection() {
                 {/* Section Header */}
                 <div className="text-center mb-24 space-y-4">
                     <h2 className="text-3xl md:text-5xl font-sans font-medium text-white -tracking-[0.03em]">
-                        <span
-                            className="italic font-light text-gray-200 -tracking-[0.05em] antialiased pr-3"
-                            style={{ fontFamily: '"Times New Roman", Times, serif' }}
-                        >
+                        <span className="accent-serif">
                             1-on-1
-                        </span>
+                        </span>{" "}
                         Student Results Driven by Process
                     </h2>
                 </div>

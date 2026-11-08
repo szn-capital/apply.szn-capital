@@ -255,13 +255,13 @@ export default function TestimonialsSection() {
                 <ScrollFadeIn direction="up" duration={0.8}>
                     <div className="text-center mb-16 space-y-4">
                         <h2 className="text-3xl md:text-5xl font-sans font-medium text-white -tracking-[0.03em] leading-tight">
-                            <span className="italic font-light text-gray-200 antialiased pr-2" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+                            <span className="accent-serif">
                                 Results
-                            </span>
+                            </span>{" "}
                             Follow Process.
                             <br />
-                            Process Is What We
-                            <span className="italic font-light text-gray-200 antialiased pl-2" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+                            Process Is What We{" "}
+                            <span className="accent-serif">
                                 Build.
                             </span>
                         </h2>

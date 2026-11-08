@@ -29,7 +29,6 @@
   --color-gray-600: #4b5563;
   
   /* Fonts - Referencing next/font/google CSS variables */
-  --font-display: var(--font-playfair);
   --font-sans: var(--font-inter);
 }
 
@@ -54,6 +53,9 @@ html {
 
 body {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   /* Transparent to show html gradient */
   background-color: transparent;
   color: var(--color-text-primary);
@@ -67,4 +69,22 @@ body {
 #__next {
   box-shadow: none !important;
   min-height: 100vh;
+}
+/* Headlines break into even lines; paragraphs avoid a lonely last word. */
+@layer base {
+  h1, h2 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+}
+
+/* The serif italic accent word in headlines (brand: Times New Roman Italic).
+   Times is drawn smaller than Inter at the same size, so it is scaled up
+   to sit on the same height as the surrounding words. One look everywhere. */
+.accent-serif {
+  font-family: "Times New Roman", var(--font-tinos), Times, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.17em;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  font-synthesis: none;
 }
