@@ -133,7 +133,11 @@ const MarqueeRow = ({ items, direction = 'left', speed = 40, onCardClick }: {
         const third = () => track.scrollWidth / 3;
         let pos = 0, mine = -1, last = 0, pausedUntil = 0, resting = true, raf = 0;
         let down: { x: number; s: number } | null = null;
-        const set = (x: number) => { pos = x; row.scrollLeft = x; mine = row.scrollLeft; };
+        // Safari rounds scrollLeft to whole pixels, so a slow glide jumps 0-1-0-1 px (stutter on iPhones).
+        // The scroll takes the whole pixels and the track slides the leftover fraction with a GPU transform.
+        let frac = 0;
+        const nudge = (f: number) => { if (f !== frac) { frac = f; track.style.transform = f ? `translate3d(${-f}px,0,0)` : ''; } };
+        const set = (x: number) => { pos = x; nudge(0); row.scrollLeft = x; mine = row.scrollLeft; };
         const centre = () => {
             const w = third(); if (!w) return;
             let x = row.scrollLeft;
@@ -142,7 +146,7 @@ const MarqueeRow = ({ items, direction = 'left', speed = 40, onCardClick }: {
             if (Math.abs(x - row.scrollLeft) > 1) set(x); else pos = x;
         };
         set(third() + (dir < 0 ? third() / 2 : 1));
-        const pause = () => { pausedUntil = performance.now() + 1500; };
+        const pause = () => { pausedUntil = performance.now() + 1500; nudge(0); };
         const onScroll = () => { if (Math.abs(row.scrollLeft - mine) > 1.5) pause(); };
         const onDown = (e: MouseEvent) => { down = { x: e.clientX, s: row.scrollLeft }; dragged.current = false; pause(); e.preventDefault(); };
         const onMove = (e: MouseEvent) => {
@@ -167,8 +171,8 @@ const MarqueeRow = ({ items, direction = 'left', speed = 40, onCardClick }: {
                 const w = third();
                 pos += dir * (w / speed) * dt;
                 if (pos >= 2 * w) pos -= w; else if (pos < w) pos += w;
-                row.scrollLeft = pos; mine = row.scrollLeft;
-            } else if (t <= pausedUntil) resting = false;
+                row.scrollLeft = Math.floor(pos); mine = row.scrollLeft; nudge(Math.min(1, Math.max(0, pos - mine)));
+            } else if (t <= pausedUntil) { resting = false; nudge(0); }
             raf = requestAnimationFrame(step);
         };
         raf = requestAnimationFrame(step);
@@ -191,7 +195,7 @@ const MarqueeRow = ({ items, direction = 'left', speed = 40, onCardClick }: {
     return (
         <div className="mask-gradient">
             <div ref={rowRef} className="marquee-row relative flex w-full select-none overflow-x-auto cursor-grab active:cursor-grabbing">
-                <div ref={trackRef} className="flex gap-4 py-2 w-max">
+                <div ref={trackRef} className="flex gap-4 py-2 w-max will-change-transform">
                     {[0, 1, 2].map((copy) => items.map((item, idx) => (
                         <TestimonialCard key={`${copy}-${idx}`} item={item} onClick={open} />
                     )))}
