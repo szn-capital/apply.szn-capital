@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { ExternalLink, X, ZoomIn } from 'lucide-react';
 import { ScrollFadeIn } from './ScrollAnimations';
@@ -106,38 +106,91 @@ const TestimonialCard = ({ item, onClick }: { item: Testimonial; onClick: (item:
 );
 
 // Marquee Row Component
-// FIX: Wir duplizieren die Items jetzt 4x (statt 2x), um Lücken auf breiten Screens zu vermeiden.
+// Each row glides on its own and can be swiped (phone) or dragged (mouse) back and forth, like links.szn-capital.com.
+// The row is a normal horizontal scroll box with the cards listed three times; a frame loop nudges it along inside
+// the middle copy and wraps there, out of sight. While a finger, wheel, drag or the phone's own momentum moves the
+// row, the loop stays off (no fighting, no stutter); 1.5 s after the row comes to rest it carries on.
 const MarqueeRow = ({ items, direction = 'left', speed = 40, onCardClick }: {
     items: Testimonial[];
     direction?: 'left' | 'right';
-    speed?: number;
+    speed?: number; // seconds for one full set of cards to pass
     onCardClick: (item: Testimonial) => void;
 }) => {
+    const rowRef = useRef<HTMLDivElement>(null);
+    const trackRef = useRef<HTMLDivElement>(null);
+    const dragged = useRef(false);
+
+    useEffect(() => {
+        const row = rowRef.current, track = trackRef.current;
+        if (!row || !track) return;
+        const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+        const dir = direction === 'right' ? -1 : 1;
+        const third = () => track.scrollWidth / 3;
+        let pos = 0, mine = -1, last = 0, pausedUntil = 0, resting = true, raf = 0;
+        let down: { x: number; s: number } | null = null;
+        const set = (x: number) => { pos = x; row.scrollLeft = x; mine = row.scrollLeft; };
+        const centre = () => {
+            const w = third(); if (!w) return;
+            let x = row.scrollLeft;
+            while (x < w) x += w;
+            while (x >= 2 * w) x -= w;
+            if (Math.abs(x - row.scrollLeft) > 1) set(x); else pos = x;
+        };
+        set(third() + (dir < 0 ? third() / 2 : 1));
+        const pause = () => { pausedUntil = performance.now() + 1500; };
+        const onScroll = () => { if (Math.abs(row.scrollLeft - mine) > 1.5) pause(); };
+        const onDown = (e: MouseEvent) => { down = { x: e.clientX, s: row.scrollLeft }; dragged.current = false; pause(); e.preventDefault(); };
+        const onMove = (e: MouseEvent) => {
+            if (!down) return;
+            const dx = e.clientX - down.x;
+            if (Math.abs(dx) > 5) dragged.current = true;
+            row.scrollLeft = down.s - dx; pause();
+        };
+        const onUp = () => { if (down) { down = null; pause(); } };
+        row.addEventListener('touchstart', pause, { passive: true });
+        row.addEventListener('touchmove', pause, { passive: true });
+        row.addEventListener('touchend', pause, { passive: true });
+        row.addEventListener('wheel', pause, { passive: true });
+        row.addEventListener('scroll', onScroll, { passive: true });
+        row.addEventListener('mousedown', onDown);
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('mouseup', onUp);
+        const step = (t: number) => {
+            const dt = last ? Math.min(0.05, (t - last) / 1000) : 0; last = t;
+            if (t > pausedUntil && !document.hidden && !reduce) {
+                if (!resting) { centre(); resting = true; }
+                const w = third();
+                pos += dir * (w / speed) * dt;
+                if (pos >= 2 * w) pos -= w; else if (pos < w) pos += w;
+                row.scrollLeft = pos; mine = row.scrollLeft;
+            } else if (t <= pausedUntil) resting = false;
+            raf = requestAnimationFrame(step);
+        };
+        raf = requestAnimationFrame(step);
+        return () => {
+            cancelAnimationFrame(raf);
+            row.removeEventListener('touchstart', pause);
+            row.removeEventListener('touchmove', pause);
+            row.removeEventListener('touchend', pause);
+            row.removeEventListener('wheel', pause);
+            row.removeEventListener('scroll', onScroll);
+            row.removeEventListener('mousedown', onDown);
+            window.removeEventListener('mousemove', onMove);
+            window.removeEventListener('mouseup', onUp);
+        };
+    }, [direction, speed]);
+
+    // a drag never opens a card; a tap does
+    const open = (item: Testimonial) => { if (dragged.current) { dragged.current = false; return; } onCardClick(item); };
+
     return (
-        <div className="relative flex overflow-hidden w-full group select-none mask-gradient marquee-container">
-            <div
-                className="flex gap-4 py-2 animate-marquee"
-                style={{
-                    animationDirection: direction === 'right' ? 'reverse' : 'normal',
-                    animationDuration: `${speed}s`
-                }}
-            >
-                {/* Set 1 */}
-                {items.map((item, idx) => (
-                    <TestimonialCard key={`a-${idx}`} item={item} onClick={onCardClick} />
-                ))}
-                {/* Set 2 */}
-                {items.map((item, idx) => (
-                    <TestimonialCard key={`b-${idx}`} item={item} onClick={onCardClick} />
-                ))}
-                {/* Set 3 (Extra Coverage) */}
-                {items.map((item, idx) => (
-                    <TestimonialCard key={`c-${idx}`} item={item} onClick={onCardClick} />
-                ))}
-                {/* Set 4 (Maximum Wide Screen Coverage) */}
-                {items.map((item, idx) => (
-                    <TestimonialCard key={`d-${idx}`} item={item} onClick={onCardClick} />
-                ))}
+        <div className="mask-gradient">
+            <div ref={rowRef} className="marquee-row relative flex w-full select-none overflow-x-auto cursor-grab active:cursor-grabbing">
+                <div ref={trackRef} className="flex gap-4 py-2 w-max">
+                    {[0, 1, 2].map((copy) => items.map((item, idx) => (
+                        <TestimonialCard key={`${copy}-${idx}`} item={item} onClick={open} />
+                    )))}
+                </div>
             </div>
         </div>
     );
@@ -177,22 +230,9 @@ export default function TestimonialsSection() {
 
             {/* Styles & Animations */}
             <style>{`
-                @keyframes marquee {
-                    0% { transform: translateX(0); }
-                    /* FIX: Da wir 4 Sets haben, entspricht die Länge eines Sets 25% der Gesamtbreite (100% / 4).
-                       Wir verschieben um genau ein Set, damit der Loop nahtlos ist. */
-                    100% { transform: translateX(-25%); }
-                }
-                .animate-marquee {
-                    animation: marquee linear infinite;
-                    width: max-content;
-                    /* PERFORMANCE FIX: GPU-Beschleunigung aktivieren */
-                    will-change: transform;
-                }
-                /* Pause on hover */
-                .marquee-container:hover .animate-marquee {
-                    animation-play-state: paused !important;
-                }
+                .marquee-row { scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+                .marquee-row::-webkit-scrollbar { display: none; }
+                .marquee-row img { -webkit-user-drag: none; user-select: none; }
                 /* Maske für weiche Ränder */
                 .mask-gradient {
                     mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
