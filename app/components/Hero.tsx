@@ -35,7 +35,7 @@ export default function Hero({ subtitle, vimeoId }: HeroProps) {
             <ContentContainer size="wide" className="relative z-10 mt-4 mb-8 text-center px-4">
                 <h1 className="text-4xl sm:text-5xl md:text-[42px] lg:text-[50px] font-sans font-medium text-white leading-tight lg:leading-[1.15] -tracking-[0.03em] flex flex-col gap-2">
                         <span>Get <span className="italic font-light text-gray-200 -tracking-[0.05em] antialiased" style={{ fontFamily: '"Times New Roman", Times, serif' }}>consistent</span> payouts,</span>
-                        <span>or I keep coaching you until you&apos;ve earned back what you paid.</span>
+                        <span>or I keep coaching you until you&apos;ve <span className="italic font-light text-white -tracking-[0.05em] antialiased" style={{ fontFamily: '"Times New Roman", Times, serif' }}>earned back</span> what you paid.</span>
                     </h1>
             </ContentContainer>
 
