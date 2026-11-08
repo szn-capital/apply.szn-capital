@@ -35,9 +35,15 @@ interface Testimonial {
 
 // --- DATA ---
 // Distribute traders across 3 rows - only use funded traders
-const row1: Testimonial[] = fundedTraders.slice(0, 8).map(t => ({ ...t, payout: t.payout || "" }));
-const row2: Testimonial[] = fundedTraders.slice(8, 16).map(t => ({ ...t, payout: t.payout || "" }));
-const row3: Testimonial[] = fundedTraders.slice(16).map(t => ({ ...t, payout: t.payout || "" }));
+// Payout cards first, biggest first; cards without a payout (passed evals, +R weeks) go to the back.
+const payoutValue = (p?: string) => Number((p || "").replace(/[^0-9.]/g, "")) || 0;
+const sorted: Testimonial[] = [...fundedTraders]
+    .map(t => ({ ...t, payout: t.payout || "" }))
+    .sort((a, b) => payoutValue(b.payout) - payoutValue(a.payout));
+// dealt round-robin so every row mixes big and small payouts
+const row1: Testimonial[] = sorted.filter((_, i) => i % 3 === 0);
+const row2: Testimonial[] = sorted.filter((_, i) => i % 3 === 1);
+const row3: Testimonial[] = sorted.filter((_, i) => i % 3 === 2);
 
 
 // --- COMPONENTS ---
@@ -55,11 +61,18 @@ const TestimonialCard = ({ item, onClick }: { item: Testimonial; onClick: (item:
             </div>
             <div className="min-w-0 flex-1">
                 <p className="text-white font-medium text-base truncate">{item.name}</p>
-                <p className="text-gray-400 text-sm truncate">{item.handle}</p>
+                {item.handle && <p className="text-gray-400 text-sm truncate">{item.handle}</p>}
             </div>
-            <div className="ml-auto text-gray-600 group-hover/card:text-blue-400 transition-colors shrink-0">
-                <ExternalLink size={16} />
-            </div>
+            {item.payout ? (
+                <div className="ml-auto text-right shrink-0">
+                    <p className="text-[#86EBC6] font-semibold text-xl leading-none tabular-nums">{item.payout}</p>
+                    <p className="text-gray-500 text-[10px] font-semibold tracking-[0.12em] uppercase mt-1">payout</p>
+                </div>
+            ) : (
+                <div className="ml-auto text-gray-600 group-hover/card:text-blue-400 transition-colors shrink-0">
+                    <ExternalLink size={16} />
+                </div>
+            )}
         </div>
 
         {/* Content Layout: Text Left | Image Right (or Center if no text) */}

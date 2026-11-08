@@ -97,9 +97,16 @@ export default function StudentResultsSection() {
                                             <p className="text-white font-medium text-base">{student.name}</p>
                                             <p className="text-gray-500 text-xs">{student.handle}</p>
                                         </div>
-                                        <div className="ml-auto text-gray-600 group-hover:text-blue-400 transition-colors">
-                                            <ExternalLink size={18} />
-                                        </div>
+                                        {student.payoutAmount ? (
+                                            <div className="ml-auto text-right shrink-0">
+                                                <p className="text-[#86EBC6] font-semibold text-xl leading-none tabular-nums">{student.payoutAmount}</p>
+                                                <p className="text-gray-500 text-[10px] font-semibold tracking-[0.12em] uppercase mt-1">payout</p>
+                                            </div>
+                                        ) : (
+                                            <div className="ml-auto text-gray-600 group-hover:text-blue-400 transition-colors">
+                                                <ExternalLink size={18} />
+                                            </div>
+                                        )}
                                     </div>
 
                                     {/* Testimonial */}

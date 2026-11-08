@@ -33,28 +33,24 @@ export default function Hero({ subtitle, vimeoId }: HeroProps) {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-gray-800/20 via-[#030303]/0 to-transparent pointer-events-none" />
 
             <ContentContainer size="wide" className="relative z-10 mt-4 mb-8 text-center px-4">
-                <ScrollFadeIn direction="up" duration={0.8}>
-                    <h1 className="text-4xl sm:text-5xl md:text-[42px] lg:text-[50px] font-sans font-medium text-white leading-tight lg:leading-[1.15] -tracking-[0.03em] flex flex-col gap-2">
-                        <span>Become a <span className="italic font-light text-gray-200 -tracking-[0.05em] antialiased" style={{ fontFamily: '"Times New Roman", Times, serif' }}>6-Figure</span> Funded Trader,</span>
-                        <span>or I Will Keep Coaching You Until You Are — <span className="italic font-light text-white -tracking-[0.05em] antialiased" style={{ fontFamily: '"Times New Roman", Times, serif' }}>Guaranteed</span></span>
+                <h1 className="text-4xl sm:text-5xl md:text-[42px] lg:text-[50px] font-sans font-medium text-white leading-tight lg:leading-[1.15] -tracking-[0.03em] flex flex-col gap-2">
+                        <span>Get <span className="italic font-light text-gray-200 -tracking-[0.05em] antialiased" style={{ fontFamily: '"Times New Roman", Times, serif' }}>consistent</span> payouts,</span>
+                        <span>or I keep coaching you until you&apos;ve earned back what you paid.</span>
                     </h1>
-                </ScrollFadeIn>
             </ContentContainer>
 
             {/* Subheadline */}
             <ContentContainer size="wide" className="relative z-10 mb-8 text-center px-6">
-                <ScrollFadeIn direction="up" delay={0.2} duration={0.8}>
-                    {subtitle ? (
+                                    {subtitle ? (
                         <p className="text-sm md:text-base font-sans font-normal text-[#9CA1B2] leading-relaxed mx-auto max-w-5xl" dangerouslySetInnerHTML={{ __html: subtitle }} />
                     ) : (
                         <p className="text-sm md:text-base font-sans font-normal text-[#9CA1B2] leading-relaxed mx-auto max-w-5xl">
-                                Join a 12-month mentorship built on years of direct 1-on-1 coaching, backed by <strong className="font-semibold text-white">over $1M in verified student payouts</strong>.<br className="hidden md:block" />
-                                Get <strong className="font-semibold text-white">direct access to me, daily accountability, and personalized coaching</strong> designed to turn<br className="hidden md:block" />
+                                Join a 12-month mentorship built on years of direct 1-on-1 coaching, backed by <strong className="font-semibold text-white">over $1M in verified student payouts</strong>.{" "}<br className="hidden md:block" />
+                                Get <strong className="font-semibold text-white">direct access to me, daily accountability, and personalized coaching</strong> designed to turn{" "}<br className="hidden md:block" />
                                 inconsistent execution into repeatable performance.<br />
                                 Limited spots available.
                             </p>
                     )}
-                </ScrollFadeIn>
             </ContentContainer>
 
 
