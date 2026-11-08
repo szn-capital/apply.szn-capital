@@ -47,6 +47,11 @@ const row2: Testimonial[] = sorted.filter((_, i) => i % 3 === 1);
 const row3: Testimonial[] = sorted.filter((_, i) => i % 3 === 2);
 
 
+// Profile photo, or the first letter of the name when a student has no photo (new cards added by the daily update)
+const Avatar = ({ src, name, sizes }: { src: string; name: string; sizes: string }) =>
+    src ? <Image src={src} alt={name} fill sizes={sizes} className="object-cover" />
+        : <span className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-gray-300 bg-[#1c1c1f]">{name.charAt(0).toUpperCase()}</span>;
+
 // --- COMPONENTS ---
 
 // Card Component mit onClick Handler
@@ -58,7 +63,7 @@ const TestimonialCard = ({ item, onClick }: { item: Testimonial; onClick: (item:
         {/* Header */}
         <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-5">
             <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-white/10 bg-gray-800 shrink-0 relative">
-                <Image src={item.avatar} alt={item.name} fill sizes="48px" className="object-cover" />
+                <Avatar src={item.avatar} name={item.name} sizes="48px" />
             </div>
             <div className="min-w-0 flex-1">
                 <p className="text-white font-medium text-sm sm:text-base truncate">{item.name}</p>
@@ -299,7 +304,7 @@ export default function TestimonialsSection() {
                                 {!selectedItem.text && (
                                     <div className="absolute top-4 left-4 z-20 flex items-center gap-3 bg-black/50 backdrop-blur-md rounded-full pr-4 p-1.5 border border-white/10">
                                         <div className="w-9 h-9 rounded-full overflow-hidden border border-white/20 relative">
-                                            <Image src={selectedItem.avatar} alt={selectedItem.name} fill sizes="36px" className="object-cover" />
+                                            <Avatar src={selectedItem.avatar} name={selectedItem.name} sizes="36px" />
                                         </div>
                                         <div>
                                             <p className="text-white font-medium text-sm leading-tight">{selectedItem.name}</p>
@@ -359,7 +364,7 @@ export default function TestimonialsSection() {
                                 <div className="w-full md:w-1/3 p-8 flex flex-col border-l border-white/5 bg-[#131418]">
                                     <div className="flex items-center gap-3 mb-6">
                                         <div className="w-12 h-12 rounded-full overflow-hidden border border-white/10 relative">
-                                            <Image src={selectedItem.avatar} alt={selectedItem.name} fill sizes="48px" className="object-cover" />
+                                            <Avatar src={selectedItem.avatar} name={selectedItem.name} sizes="48px" />
                                         </div>
                                         <div>
                                             <p className="text-white font-medium text-lg">{selectedItem.name}</p>
