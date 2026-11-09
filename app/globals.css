@@ -72,8 +72,8 @@ body {
 }
 /* Headlines break into even lines; paragraphs avoid a lonely last word. */
 @layer base {
-  h1, h2 { text-wrap: balance; }
-  p { text-wrap: pretty; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, button { text-wrap: pretty; }
 }
 
 /* The serif italic accent word in headlines (brand: Times New Roman Italic).

@@ -164,7 +164,7 @@ function ShortlistedContent() {
                         <h1 className="text-4xl md:text-6xl font-sans font-medium text-white mb-4 -tracking-[0.03em]">
                             Congratulations{name ? <span className="accent-serif"> {name}!</span> : '!'}
                         </h1>
-                        <p className="text-gray-400 text-sm md:text-base font-light">
+                        <p className="text-gray-400 text-sm md:text-base">
                             Thank you for your interest in the SZN Capital mentorship program. <br className="hidden md:block" />
                             Your application has been submitted successfully.
                         </p>

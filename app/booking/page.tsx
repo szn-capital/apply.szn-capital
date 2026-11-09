@@ -52,11 +52,9 @@ export default function BookingPage() {
                             <h1 className="text-3xl md:text-4xl lg:text-[42px] font-sans font-medium text-white leading-tight mb-2">
                                 Schedule Your 1:1
                                 <br />
-                                <span className="accent-serif">
-                                    You&#39;re One Step Away From Fixing Your Trading
-                                </span>
+                                <span className="block text-[0.75em] text-[#C9C9CF] mt-1">You&#39;re one step away from <em className="accent-serif">fixing</em> your trading</span>
                             </h1>
-                            <p className="text-[#9CA1B2] text-xs md:text-sm font-light mt-4 mb-2">
+                            <p className="text-[#9CA1B2] text-xs md:text-sm mt-4 mb-2">
                                 We limit calls each week to keep coaching quality high. <span className="text-gray-300 font-normal">Select a time now</span> before spots are taken.
                             </p>
                         </div>

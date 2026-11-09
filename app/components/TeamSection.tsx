@@ -51,11 +51,11 @@ export default function TeamSection() {
 
                                 {/* Text Content - Aligned below image */}
                                 <div className="px-2 pb-4 grow flex flex-col">
-                                    <h3 className="text-xl md:text-2xl font-sans font-medium text-white mb-3">
+                                    <h3 className="text-xl md:text-2xl font-sans font-medium text-white mb-3 leading-tight md:min-h-[2.5em]">
                                         {member.name}
                                     </h3>
                                     <p
-                                        className="text-sm text-gray-400 leading-relaxed font-light tracking-wide"
+                                        className="text-sm text-gray-400 leading-relaxed"
                                         dangerouslySetInnerHTML={{ __html: member.description }}
                                     />
                                 </div>

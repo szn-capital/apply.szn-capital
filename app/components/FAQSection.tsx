@@ -114,7 +114,7 @@ export default function FAQSection() {
                                         }`}
                                 >
                                     <div
-                                        className="text-gray-400 text-sm md:text-base leading-relaxed pr-12 font-light"
+                                        className="text-gray-400 text-sm md:text-base leading-relaxed pr-12"
                                         dangerouslySetInnerHTML={{ __html: faq.answer }}
                                     />
                                 </div>

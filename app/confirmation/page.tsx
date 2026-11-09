@@ -217,7 +217,7 @@ function ShortlistedContent() {
                         <h1 className="text-4xl md:text-6xl font-sans font-medium text-white mb-4 -tracking-[0.03em]">
                             Your Call Is Booked{name ? <span className="accent-serif">, {name}!</span> : '!'}
                         </h1>
-                        <p className="text-gray-400 text-sm md:text-base font-light">
+                        <p className="text-gray-400 text-sm md:text-base">
                             Showing up prepared is the difference between traders who get accepted,<br className="hidden md:block" />
                             and those who don&#39;t.
                         </p>

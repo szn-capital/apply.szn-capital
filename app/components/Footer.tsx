@@ -40,7 +40,7 @@ export default function Footer() {
                                 Funded Trader?
                             </span>
                         </h2>
-                        <p className="text-gray-400 text-sm md:text-base max-w-lg mx-auto mb-10 font-light leading-relaxed">
+                        <p className="text-gray-400 text-sm md:text-base max-w-lg mx-auto mb-10 leading-relaxed">
                             Apply now to see if you qualify for the SZN Academy mentorship program.
                             Limited spots available for the upcoming cohort.
                         </p>
