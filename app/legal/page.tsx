@@ -228,7 +228,7 @@ export default function LegalDisclosurePage() {
 
                                 <div>
                                     <p className="text-white font-medium mb-1">Embedded Third-Party Services</p>
-                                    <p>Calendly (scheduling, Calendly LLC, USA), Typeform (application forms, TYPEFORM SL, Spain / EU)</p>
+                                    <p>Calendly (scheduling, Calendly LLC, USA), iClosed (application forms &amp; call booking, You Scale LLC d/b/a iClosed)</p>
                                 </div>
 
                                 <div>

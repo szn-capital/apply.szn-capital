@@ -1,31 +1,7 @@
-"use client"
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import IClosedEmbed from '../components/IClosedEmbed';
 
 export default function ApplyPage() {
-    const [mounted, setMounted] = useState(false);
-    const [ready, setReady] = useState(false);
-
-    // Load Typeform embed script
-    useEffect(() => {
-        setMounted(true);
-        // Typeform calls this once the form is on screen; until then a loading line shows instead of a black box
-        (window as unknown as Record<string, () => void>).sznFormReady = () => window.setTimeout(() => setReady(true), 700);
-        const fallback = window.setTimeout(() => setReady(true), 10000);
-
-        const script = document.createElement('script');
-        script.src = 'https://embed.typeform.com/next/embed.js';
-        script.async = true;
-        document.body.appendChild(script);
-
-        return () => {
-            window.clearTimeout(fallback);
-            if (script.parentNode) {
-                script.parentNode.removeChild(script);
-            }
-        };
-    }, []);
-
     return (
         <main className="min-h-screen text-white selection:bg-purple-500/30">
             {/* Minimal Header */}
@@ -37,23 +13,8 @@ export default function ApplyPage() {
                 </Link>
             </div>
 
-            {/* Typeform Embed - Inline Widget */}
-            <div className="relative w-full h-[calc(100vh-52px)]">
-                {!ready && (
-                    <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none bg-[#0b0b0d]">
-                        <p className="text-sm text-gray-400 tracking-wide animate-pulse">loading the application…</p>
-                    </div>
-                )}
-                {mounted && (
-                    <div
-                        data-tf-widget="OYdvigDE"
-                        data-tf-inline-on-mobile
-                        data-tf-medium="snippet"
-                        data-tf-on-ready="sznFormReady"
-                        style={{ width: '100%', height: '100%' }}
-                    />
-                )}
-            </div>
+            {/* iClosed Embed - Inline Widget */}
+            <IClosedEmbed height="calc(100vh - 52px)" className="bg-[#0b0b0d]" />
         </main>
     );
 }

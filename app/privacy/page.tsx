@@ -121,7 +121,7 @@ export default function PrivacyPolicyPage() {
                                 </div>
                             </div>
                             <p className="text-gray-300 leading-relaxed">
-                                Third-party service providers (Calendly, Typeform, Kit, Meta, Google) may set their own cookies when you interact with embedded content or features on our website. These cookies are governed by the respective third-party privacy policies linked in Section 6.
+                                Third-party service providers (Calendly, iClosed, Kit, Meta, Google) may set their own cookies when you interact with embedded content or features on our website. These cookies are governed by the respective third-party privacy policies linked in Section 6.
                             </p>
                             <p className="text-gray-300 leading-relaxed">
                                 You can control and manage cookies through your browser settings. Most browsers allow you to view and delete cookies, block third-party cookies, or block all cookies from specific websites. Please note that disabling cookies may affect the functionality of this website. You may also opt out of interest-based advertising through <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Google Ad Settings</a>, <a href="https://www.facebook.com/ads/preferences" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Facebook Ad Preferences</a>, or the <a href="http://optout.networkadvertising.org" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Network Advertising Initiative</a>.
@@ -148,12 +148,12 @@ export default function PrivacyPolicyPage() {
                                 </div>
 
                                 <div>
-                                    <p className="text-white font-medium">Typeform — Application Forms (Embedded)</p>
-                                    <p className="text-gray-400 text-sm">Provider: TYPEFORM SL, Carrer Bac de Roda 163, 08018 Barcelona, Spain</p>
+                                    <p className="text-white font-medium">iClosed — Application Forms &amp; Call Booking (Embedded)</p>
+                                    <p className="text-gray-400 text-sm">Provider: You Scale LLC (d/b/a iClosed), contact: hello@iclosed.io</p>
                                     <p className="text-sm mt-1">
-                                        We embed Typeform for our application and intake forms. When you submit an application, Typeform processes the personal data you enter, such as your name, email address, trading experience, and other information relevant to your application. Processing is based on pre-contractual measures at your request (Art. 6(1)(b) GDPR) and our legitimate interest in an efficient application process (Art. 6(1)(f) GDPR). Typeform stores data on servers within the EU.
+                                        We embed iClosed for our application form and for booking calls with our team. When you submit an application or book a call, iClosed processes the personal data you enter, such as your name, email address, phone number, trading experience, other information relevant to your application, and your chosen call time. Processing is based on pre-contractual measures at your request (Art. 6(1)(b) GDPR) and our legitimate interest in an efficient application and scheduling process (Art. 6(1)(f) GDPR). iClosed primarily hosts its platform and data within the EU; where data is transferred outside the EU, iClosed relies on Standard Contractual Clauses.
                                     </p>
-                                    <p className="text-sm mt-1"><a href="https://www.typeform.com/help/a/privacy-policy-360029581691/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Typeform Privacy Policy →</a></p>
+                                    <p className="text-sm mt-1"><a href="https://www.iclosed.io/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">iClosed Privacy Policy →</a></p>
                                 </div>
 
                                 <div>
