@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useRef, useState } from 'react';
+import { preconnect, preload } from 'react-dom';
 
 const ICLOSED_URL = 'https://app.iclosed.io/e/szn-academy/szn-academy';
 const ICLOSED_SCRIPT = 'https://app.iclosed.io/assets/widget.js';
@@ -15,12 +16,17 @@ export default function IClosedEmbed({ className = '', height = '620px' }: IClos
     const [ready, setReady] = useState(false);
     const widgetRef = useRef<HTMLDivElement>(null);
 
+    // Put these hints in the server HTML so the browser fetches widget.js while React is
+    // still booting, instead of only after hydration when the effect below runs
+    preconnect('https://app.iclosed.io');
+    preload(ICLOSED_SCRIPT, { as: 'script' });
+
     useEffect(() => {
         const container = widgetRef.current;
         if (!container) return;
 
         // Show a loading line until iClosed's iframe has loaded, instead of an empty box
-        const markReady = () => window.setTimeout(() => setReady(true), 400);
+        const markReady = () => setReady(true);
         const fallback = window.setTimeout(() => setReady(true), 10000);
         const observer = new MutationObserver(() => {
             const iframe = container.querySelector('iframe');

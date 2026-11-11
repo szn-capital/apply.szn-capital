@@ -3,9 +3,9 @@ import { ScrollFadeIn } from './ScrollAnimations';
 
 // Full-width "book your call" block: small eyebrow + headline above a wide iClosed embed.
 // The embed needs ~1000px+ width for iClosed's side-by-side form + calendar layout.
-export default function BookCallSection() {
+export default function BookCallSection({ id }: { id?: string }) {
     return (
-        <section className="px-4 py-[clamp(80px,12vh,140px)]">
+        <section id={id} className="-scroll-mt-20 px-4 py-[clamp(80px,12vh,140px)]">
             <div className="max-w-[1180px] mx-auto flex flex-col items-center gap-[clamp(40px,6vh,72px)]">
                 <ScrollFadeIn direction="up" duration={0.8}>
                     <div className="flex flex-col items-center gap-4 text-center">

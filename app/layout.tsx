@@ -48,7 +48,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.cdnfonts.com" />
         <link href="https://fonts.cdnfonts.com/css/tt-tsars-a-trial" rel="stylesheet" />
-        <link rel="preconnect" href="https://app.iclosed.io" />
       </head>
       <body className="bg-gradient-to-b from-[#151618] to-[#01040B] min-h-screen text-white antialiased selection:bg-white selection:text-black" suppressHydrationWarning>
         {children}
