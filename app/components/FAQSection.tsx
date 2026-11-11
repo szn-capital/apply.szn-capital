@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from 'react';
-import IClosedEmbed from './IClosedEmbed';
 import { Plus, Minus } from 'lucide-react';
 import ContentContainer from './ContentContainer';
 import { ScrollFadeIn } from './ScrollAnimations';
@@ -123,10 +122,6 @@ export default function FAQSection() {
                     </div>
                 </ScrollFadeIn>
 
-                {/* iClosed Embed */}
-                <div className="mt-20 max-w-4xl mx-auto">
-                    <IClosedEmbed />
-                </div>
 
             </ContentContainer>
         </section>

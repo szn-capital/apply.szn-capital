@@ -3,6 +3,7 @@ import TeamSection from "./components/TeamSection";
 import StudentResultsSection from "./components/StudentResultsSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import FAQSection from "./components/FAQSection";
+import BookCallSection from "./components/BookCallSection";
 import MinimalFooter from "./components/MinimalFooter";
 
 export default function Home() {
@@ -10,9 +11,11 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero vimeoId="1200777428" />
       <TeamSection />
+      <BookCallSection />
       <StudentResultsSection />
       <TestimonialsSection />
       <FAQSection />
+      <BookCallSection />
       <MinimalFooter />
     </main>
   );

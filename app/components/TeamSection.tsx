@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import IClosedEmbed from './IClosedEmbed';
 import ContentContainer from './ContentContainer';
 import { ScrollFadeIn } from './ScrollAnimations';
 
@@ -64,10 +63,6 @@ export default function TeamSection() {
                     ))}
                 </div>
 
-                {/* iClosed Embed */}
-                <div className="mt-20 max-w-4xl mx-auto">
-                    <IClosedEmbed />
-                </div>
             </ContentContainer>
         </section>
     );
