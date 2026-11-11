@@ -11,7 +11,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero vimeoId="1200777428" />
       <TeamSection />
-      <BookCallSection />
+      <BookCallSection id="book-call" />
       <StudentResultsSection />
       <TestimonialsSection />
       <FAQSection />

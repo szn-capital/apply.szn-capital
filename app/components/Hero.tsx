@@ -1,5 +1,4 @@
 "use client"
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import ContentContainer from './ContentContainer';
@@ -12,10 +11,8 @@ interface HeroProps {
 }
 
 export default function Hero({ subtitle, vimeoId }: HeroProps) {
-    const router = useRouter();
-
     const handleApply = () => {
-        router.push('/apply');
+        document.getElementById('book-call')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
     return (
