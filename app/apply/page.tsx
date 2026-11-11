@@ -1,25 +1,39 @@
 "use client"
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
-export default function ApplyPage() {
-    const [mounted, setMounted] = useState(false);
-    const [ready, setReady] = useState(false);
+const ICLOSED_URL = 'https://app.iclosed.io/e/szn-academy/szn-academy';
+const ICLOSED_SCRIPT = 'https://app.iclosed.io/assets/widget.js';
 
-    // Load Typeform embed script
+export default function ApplyPage() {
+    const [ready, setReady] = useState(false);
+    const widgetRef = useRef<HTMLDivElement>(null);
+
+    // Load the iClosed embed script once the widget container is in the DOM
     useEffect(() => {
-        setMounted(true);
-        // Typeform calls this once the form is on screen; until then a loading line shows instead of a black box
-        (window as unknown as Record<string, () => void>).sznFormReady = () => window.setTimeout(() => setReady(true), 700);
+        const container = widgetRef.current;
+        if (!container) return;
+
+        // Show a loading line until iClosed's iframe has loaded, instead of a black box
+        const markReady = () => window.setTimeout(() => setReady(true), 400);
         const fallback = window.setTimeout(() => setReady(true), 10000);
+        const observer = new MutationObserver(() => {
+            const iframe = container.querySelector('iframe');
+            if (iframe) {
+                iframe.addEventListener('load', markReady, { once: true });
+                observer.disconnect();
+            }
+        });
+        observer.observe(container, { childList: true, subtree: true });
 
         const script = document.createElement('script');
-        script.src = 'https://embed.typeform.com/next/embed.js';
+        script.src = ICLOSED_SCRIPT;
         script.async = true;
         document.body.appendChild(script);
 
         return () => {
             window.clearTimeout(fallback);
+            observer.disconnect();
             if (script.parentNode) {
                 script.parentNode.removeChild(script);
             }
@@ -37,22 +51,20 @@ export default function ApplyPage() {
                 </Link>
             </div>
 
-            {/* Typeform Embed - Inline Widget */}
+            {/* iClosed Embed - Inline Widget */}
             <div className="relative w-full h-[calc(100vh-52px)]">
                 {!ready && (
                     <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none bg-[#0b0b0d]">
                         <p className="text-sm text-gray-400 tracking-wide animate-pulse">loading the application…</p>
                     </div>
                 )}
-                {mounted && (
-                    <div
-                        data-tf-widget="OYdvigDE"
-                        data-tf-inline-on-mobile
-                        data-tf-medium="snippet"
-                        data-tf-on-ready="sznFormReady"
-                        style={{ width: '100%', height: '100%' }}
-                    />
-                )}
+                <div
+                    ref={widgetRef}
+                    className="iclosed-widget"
+                    data-url={ICLOSED_URL}
+                    title="SZN Academy"
+                    style={{ width: '100%', height: '100%' }}
+                />
             </div>
         </main>
     );
