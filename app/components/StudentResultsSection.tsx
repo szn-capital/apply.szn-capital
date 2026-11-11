@@ -2,7 +2,6 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { X, ExternalLink, ZoomIn } from 'lucide-react';
 import ContentContainer from './ContentContainer';
 import { ScrollFadeIn } from './ScrollAnimations';
@@ -135,14 +134,6 @@ export default function StudentResultsSection() {
                     ))}
                 </div>
 
-                {/* CTA */}
-                <div className="flex justify-center mt-20">
-                    <Link href="/apply">
-                        <button className="bg-white text-black px-10 py-4 rounded-full text-sm font-semibold tracking-wide hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.15)]">
-                            Become a 1:1 Student
-                        </button>
-                    </Link>
-                </div>
             </ContentContainer>
 
             {/* MODAL */}

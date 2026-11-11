@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import Link from 'next/link';
+import IClosedEmbed from './IClosedEmbed';
 import { Plus, Minus } from 'lucide-react';
 import ContentContainer from './ContentContainer';
 import { ScrollFadeIn } from './ScrollAnimations';
@@ -123,13 +123,9 @@ export default function FAQSection() {
                     </div>
                 </ScrollFadeIn>
 
-                {/* CTA Button */}
-                <div className="flex justify-center mt-20">
-                    <Link href="/apply">
-                        <button className="bg-white text-black px-12 py-4 rounded-full text-sm font-semibold tracking-wide hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.15)]">
-                            Apply Now
-                        </button>
-                    </Link>
+                {/* iClosed Embed */}
+                <div className="mt-20 max-w-4xl mx-auto">
+                    <IClosedEmbed />
                 </div>
 
             </ContentContainer>
