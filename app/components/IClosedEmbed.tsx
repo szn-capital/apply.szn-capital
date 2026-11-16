@@ -59,7 +59,10 @@ export default function IClosedEmbed({ className = '', height = '620px' }: IClos
     }, []);
 
     return (
-        <div className={`relative w-full ${className}`} style={{ height }}>
+        // minHeight, not height: iClosed resizes its own div as the form grows (question
+        // list, calendar), so a fixed height let the form overflow under the next section
+        // and that section swallowed the clicks
+        <div className={`relative w-full ${className}`} style={{ minHeight: height }}>
             {!ready && (
                 <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
                     <p className="text-sm text-gray-400 tracking-wide animate-pulse">loading the application…</p>
@@ -70,7 +73,7 @@ export default function IClosedEmbed({ className = '', height = '620px' }: IClos
                 className="iclosed-widget"
                 data-url={ICLOSED_URL}
                 title="SZN Academy"
-                style={{ width: '100%', height: '100%' }}
+                style={{ width: '100%', minHeight: height }}
             />
         </div>
     );
