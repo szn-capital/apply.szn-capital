@@ -253,6 +253,14 @@ export const fundedTraders: FundedTrader[] = [
         certImage: "/funded_traders/15 - name_ Alex/certificate.webp",
         payout: "$3,213",
     },
+    {
+        name: "Rado",
+        handle: "@radulitu",
+        avatar: "/testimonials_academy/4 - name_ rado/pfp.png",
+        text: "",
+        certImage: "/funded_traders/16 - name_ Rado/certificate.jpg",
+        payout: "$4,237",
+    },
 ];
 
 // Combined array with 1o1 students featured first
