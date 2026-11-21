@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
+  // Hides the round "N" Next.js button in local previews only; the live site never shows it.
+  devIndicators: false,
   images: {
     formats: ['image/avif', 'image/webp'],
   },

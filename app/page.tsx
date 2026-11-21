@@ -5,6 +5,7 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import FAQSection from "./components/FAQSection";
 import BookCallSection from "./components/BookCallSection";
 import MinimalFooter from "./components/MinimalFooter";
+import StickyApply from "./components/StickyApply";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <FAQSection />
       <BookCallSection />
       <MinimalFooter />
+      <StickyApply />
     </main>
   );
 }
