@@ -50,7 +50,8 @@ export default function Hero({ subtitle, vimeoId }: HeroProps) {
 
 
             {/* Video Container (VSL) */}
-            <ContentContainer size="normal" className="relative z-10 mb-10 px-4">
+            {/* On laptop-height screens the video shrinks so Apply Now stays above the fold (David 21.11.26) */}
+            <ContentContainer size="normal" className="relative z-10 mb-8 md:mb-10 px-4 md:max-w-[min(900px,max(560px,calc((100svh_-_430px)*16/9)))]">
                 <ScrollFadeIn direction="up" delay={0.3} duration={0.8}>
                     <div className="relative rounded-2xl p-[2px] bg-gradient-to-b from-white/10 to-white/5 shadow-2xl">
                         {vimeoId ? (
@@ -66,6 +67,7 @@ export default function Hero({ subtitle, vimeoId }: HeroProps) {
             {/* CTA Button */}
             <div className="relative z-10 mb-12 group">
                 <button
+                    id="hero-apply"
                     onClick={handleApply}
                     className="relative bg-white text-black px-16 py-4 rounded-full text-sm font-semibold tracking-wide overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105"
                 >
